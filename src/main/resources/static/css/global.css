@@ -1,0 +1,129 @@
+/* HEADER & FOOTER RELOAD FADE-IN */
+#site-header,
+#site-footer {
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+}
+
+#site-header.loaded,
+#site-footer.loaded {
+    opacity: 1;
+}
+
+/* HEADER NAV LINK HOVER */
+
+.hover-link {
+    color: white;
+
+    background: linear-gradient(
+            to right,
+            #e31c25 0%,
+            #e31c25 50%,
+            white 50%,
+            white 100%
+    );
+
+    background-size: 200% 100%;
+    background-position: 100% 0;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 0.5s ease;
+    -webkit-text-stroke: 0.2px white;
+    transition: background-position 0.5s ease, -webkit-text-stroke 0.5s ease;
+}
+
+.hover-link:hover {
+    background-position: 0 0;
+    -webkit-text-stroke: 0.2px #e31c25;
+}
+
+/* SCROLL BAR STLYE */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-surface-container-high);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-container);
+}
+
+/* ============================== */
+
+html {
+    scroll-behavior: smooth;
+    background-color: #09090b;
+    color: #f4f4f5
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: #e31c25;
+    color: #f5f5f5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+input[type="checkbox"].form-checkbox {
+    border-radius: 4px !important;
+}
+
+input[type="checkbox"].form-checkbox:checked {
+    background-color: #e31c25 !important;
+    border-color: #e31c25 !important;
+}
+
+/* ========== Home Page ========= */
+
+.hero-gradient {
+    background: linear-gradient(to top, #0a0a0a 10%, rgba(10, 10, 10, 0.7) 40%, rgba(10, 10, 10, 0.2) 100%);
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ===== Calculator Pages ===== */
+
+/* Custom Input Styling */
+input[type="number"], input[type="text"], select {
+    background-color: #0F0F0F;
+    border: 1px solid #2A2A2A;
+    border-radius: 8px;
+    color: #e4e2e1;
+    padding: 12px 16px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #e31c25;
+    box-shadow: 0 0 0 1px #e31c25;
+}
+
+.form-input:focus {
+    border-color: #e31c25 !important;
+    box-shadow: 0 0 0 2px rgba(227, 28, 37, 0.2) !important;
+}
+
+
+

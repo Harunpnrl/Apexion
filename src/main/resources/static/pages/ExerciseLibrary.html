@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Exercise Library - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Geist:wght@100..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<div class="flex-1 w-full flex relative">
+
+    <!-- SideNav Filters -->
+    <aside class="hidden md:flex flex-col w-72 shrink-0 h-[calc(100vh-70px)] sticky top-[70px] px-6 py-6 border-r border-surface-variant overflow-y-auto bg-surface-container-lowest/30">
+        <div class="mb-8">
+            <h2 class="font-headline-md text-[24px] font-semibold text-on-surface mb-3">Filters</h2>
+            <div class="w-full h-px bg-surface-variant mb-6"></div>
+
+            <!-- Muscle Group -->
+            <div class="mb-6">
+                <h3 class="font-bold text-primary-container text-lg font-headline-md tracking-wider uppercase mb-3">
+                    Muscle
+                    Group</h3>
+                <div class="flex flex-col gap-2.5">
+
+                    <!-- Chest -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Chest" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Chest</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Upper Chest" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Upper Chest</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Lower Chest" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Lower Chest</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Back -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Back" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Back</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Lats" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Lats</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Trapezius" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Trapezius</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Shoulders -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Shoulders" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Shoulders</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Front Delts" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Front Delts</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Lateral Delts" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Lateral Delts</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Rear Delts" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Rear Delts</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Arms -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Arms" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Arms</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Biceps" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Biceps</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Triceps" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Triceps</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Forearms" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Forearms</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Core -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Core" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Core</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Abs" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Abs</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Obliques" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Obliques</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Legs -->
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between group">
+
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Legs" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Legs</span>
+                            </label>
+
+                            <button class="p-1 text-on-surface-variant hover:text-primary transition-colors"
+                                    onclick="this.closest('.flex-col').querySelector('.sub-menu').classList.toggle('hidden'); this.querySelector('span').classList.toggle('rotate-180')">
+                                <span class="material-symbols-outlined text-[18px] transition-transform">expand_more</span>
+                            </button>
+                        </div>
+
+                        <div class="sub-menu hidden flex flex-col gap-2 pl-6">
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Glutes" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Glutes</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Quads" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Quads</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Hip Flexors" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Hip Flexors</span>
+                            </label>
+
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                                       data-category="muscle" data-label="Calves" type="checkbox"/>
+                                <span class="font-body-md text-[15px] text-on-surface-variant group-hover:text-primary transition-colors">Calves</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="mb-6">
+                <h3 class="font-bold text-primary-container text-lg font-headline-md tracking-wider uppercase mb-3">
+                    Difficulty</h3>
+                <div class="flex flex-col gap-2.5">
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="difficulty" data-label="Beginner" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Beginner</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="difficulty" data-label="Intermediate" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Intermediate</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="difficulty" data-label="Advanced" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Advanced</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Equipment -->
+            <div class="mb-6">
+                <h3 class="font-bold text-primary-container text-lg font-headline-md tracking-wider uppercase mb-3">
+                    Equipment</h3>
+                <div class="flex flex-col gap-2.5">
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="equipment" data-label="Barbell" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Barbell</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="equipment" data-label="Dumbbell" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Dumbbell</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="equipment" data-label="Machine" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Machine</span>
+                    </label>
+
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input class="filter-checkbox form-checkbox bg-surface-container-highest border-surface-variant text-primary-container rounded focus:ring-primary-container"
+                               data-category="equipment" data-label="Bodyweight" type="checkbox"/>
+                        <span class="font-body-md text-[15px] text-on-surface group-hover:text-primary transition-colors">Bodyweight</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clear Filters Button -->
+        <button class="mt-auto mb-2 bg-transparent border border-surface-variant text-on-surface font-label-md text-[14px] font-medium uppercase py-2.5 px-4 rounded-lg hover:border-primary-container hover:text-primary-container transition-all active:scale-95 w-full"
+                id="clear-filters-btn">
+            Clear Filters
+        </button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 min-w-0 p-4 md:p-8 pb-20 md:pb-12">
+
+        <!-- Mobil Search/Filter -->
+        <div class="md:hidden flex flex-col gap-3 mb-6">
+            <div class="relative w-full">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+                <input class="bg-surface-container-highest border border-surface-variant rounded-lg py-3 pl-10 pr-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container font-body-md text-[15px] w-full placeholder-on-surface-variant transition-colors"
+                       placeholder="Search exercises..." type="text" id="mobile-search">
+            </div>
+            <button class="flex items-center justify-center gap-2 bg-surface-container-low border border-surface-variant rounded-lg py-2.5 text-on-surface font-label-md text-[14px] uppercase w-full active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-[18px]">tune</span>
+                Filters
+            </button>
+        </div>
+
+        <!-- Filter Tags -->
+        <div id="showing-container" class="hidden flex-wrap gap-2 mb-6 items-center">
+            <span class="font-body-md text-[15px] text-on-surface-variant mr-2">Showing:</span>
+            <div id="active-pills" class="flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <!-- Dynamic Exercise Grid -->
+        <div id="exercise-grid"
+             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
+        </div>
+    </main>
+</div>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/exercises-fetch.js"></script>
+<script src="../js/exercises-filter.js"></script>
+<script src="../js/favorites.js"></script>
+
+</html>

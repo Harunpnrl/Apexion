@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Edit Profile - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet"/>
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-primary/20 selection:text-primary">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<!-- Main Content Container -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-4 md:px-8 py-8 md:py-12 pb-24">
+
+    <!-- Profile Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-[#262626]">
+
+        <div class="flex flex-col gap-2"><a
+                class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-label text-on-surface-variant hover:text-primary transition-colors font-semibold"
+                href="UserProfile.html"><span class="material-symbols-outlined text-[16px]">arrow_back</span><span>Back to Profile</span></a>
+
+            <h1 class="font-headline text-[38px] md:text-[46px] font-bold text-on-surface uppercase tracking-tight leading-none mt-1">
+                Edit Profile</h1>
+
+            <p class="font-body text-[14px] md:text-[15px] text-on-surface-variant font-normal">Update your personal
+                specifications, contact info, and fitness metrics.</p></div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="edit-profile-loading" class="flex flex-col items-center justify-center py-20">
+        <div class="w-12 h-12 border-4 border-surface-variant border-t-primary rounded-full animate-spin mb-4"></div>
+        <p class="font-headline text-lg text-on-surface-variant uppercase tracking-widest">Loading Your Data...</p>
+    </div>
+
+    <form id="edit-profile-form" class="flex flex-col gap-10 hidden opacity-0 transition-opacity duration-500"
+          method="POST">
+
+        <!-- PERSONAL INFORMATION -->
+        <section class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8" id="personal-information-section">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#262626]">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                    Personal Information</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+
+                <!-- First Name -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors focus-within:border-primary">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1.5"
+                           for="firstName">First Name</label>
+                    <input class="w-full bg-[#181818] border border-[#262626] rounded-lg px-3 py-2 text-on-surface font-body text-[15px] font-semibold focus:outline-none focus:border-primary transition-colors"
+                           id="firstName" name="firstName" type="text" required/>
+                </div>
+
+                <!-- Last Name -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors focus-within:border-primary">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1.5"
+                           for="lastName">Last Name</label>
+                    <input class="w-full bg-[#181818] border border-[#262626] rounded-lg px-3 py-2 text-on-surface font-body text-[15px] font-semibold focus:outline-none focus:border-primary transition-colors"
+                           id="lastName" name="lastName" type="text" required/>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors opacity-70">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1.5"
+                           for="email">Email Address</label>
+                    <input class="w-full bg-[#181818] border border-[#262626] rounded-lg px-3 py-2 text-on-surface font-body text-[15px] font-semibold focus:outline-none cursor-not-allowed"
+                           id="email" name="email" type="email" readonly title="Email cannot be changed directly"/>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors focus-within:border-primary">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1.5"
+                           for="phoneNumber">Phone Number</label>
+                    <input class="w-full bg-[#181818] border border-[#262626] rounded-lg px-3 py-2 text-on-surface font-body text-[15px] font-semibold focus:outline-none focus:border-primary transition-colors"
+                           id="phoneNumber" name="phoneNumber" type="tel"/>
+                </div>
+
+                <!-- Gender -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors focus-within:border-primary">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-2">Gender</label>
+                    <div class="grid grid-cols-3 gap-2" id="gender-selection">
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gender" value="MALE" class="peer sr-only">
+                            <div class="py-2 px-3 rounded-lg border border-[#262626] bg-[#181818] text-on-surface-variant hover:text-on-surface hover:border-[#353535] peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-on-surface peer-checked:font-semibold font-label text-xs uppercase tracking-wider font-medium text-center transition-all">
+                                Male
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gender" value="FEMALE" class="peer sr-only">
+                            <div class="py-2 px-3 rounded-lg border border-[#262626] bg-[#181818] text-on-surface-variant hover:text-on-surface hover:border-[#353535] peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-on-surface peer-checked:font-semibold font-label text-xs uppercase tracking-wider font-medium text-center transition-all">
+                                Female
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gender" value="OTHER" class="peer sr-only">
+                            <div class="py-2 px-3 rounded-lg border border-[#262626] bg-[#181818] text-on-surface-variant hover:text-on-surface hover:border-[#353535] peer-checked:border-primary peer-checked:bg-primary/20 peer-checked:text-on-surface peer-checked:font-semibold font-label text-xs uppercase tracking-wider font-medium text-center transition-all">
+                                Other
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Birthdate -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors focus-within:border-primary">
+                    <label class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1.5"
+                           for="birthdate">Birthdate</label>
+                    <input class="w-full bg-[#181818] border border-[#262626] rounded-lg px-3 py-2 text-on-surface font-body text-[15px] font-semibold focus:outline-none focus:border-primary transition-colors"
+                           id="birthdate" name="birthDate" type="date"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITNESS PROFILE -->
+        <section class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8" id="fitness-profile-section">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#262626]">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                    Fitness Profile</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+
+                <!-- Height -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between focus-within:border-primary transition-colors">
+
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium"
+                               for="heightCm">Height (CM)</label>
+                        <span class="material-symbols-outlined text-[20px] text-primary">height</span>
+                    </div>
+
+                    <div class="relative flex items-center">
+                        <input class="w-full bg-[#181818] border border-[#262626] rounded-lg py-2 pl-3 pr-10 font-headline text-[26px] font-bold text-on-surface focus:outline-none focus:border-primary leading-none transition-colors"
+                               id="heightCm" name="heightCm" type="number" step="0.1" required/>
+                        <span class="absolute right-3 font-label text-xs text-on-surface-variant uppercase font-medium pointer-events-none">cm</span>
+                    </div>
+                </div>
+
+                <!-- Weight -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between focus-within:border-primary transition-colors">
+
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium"
+                               for="weightKg">Weight (KG)</label>
+                        <span class="material-symbols-outlined text-[20px] text-primary">scale</span>
+                    </div>
+
+                    <div class="relative flex items-center">
+                        <input class="w-full bg-[#181818] border border-[#262626] rounded-lg py-2 pl-3 pr-10 font-headline text-[26px] font-bold text-on-surface focus:outline-none focus:border-primary leading-none transition-colors"
+                               id="weightKg" name="weightKg" step="0.1" type="number" required/>
+                        <span class="absolute right-3 font-label text-xs text-on-surface-variant uppercase font-medium pointer-events-none">kg</span>
+                    </div>
+                </div>
+
+                <!-- Fitness Goal -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between sm:col-span-2 lg:col-span-1 focus-within:border-primary transition-colors">
+
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium"
+                               for="fitnessGoal">Fitness Goal</label>
+                        <span class="material-symbols-outlined text-[20px] text-primary">flag</span>
+                    </div>
+
+                    <select class="w-full bg-[#181818] border border-[#262626] rounded-lg py-2.5 px-3 font-body text-[15px] font-semibold text-on-surface focus:outline-none focus:border-primary transition-colors"
+                            id="fitnessGoal" name="fitnessGoal" required>
+                        <option value="LOSE_WEIGHT">Fat Loss & Conditioning</option>
+                        <option value="MAINTAIN_WEIGHT">Maintain Weight & Recomp</option>
+                        <option value="GAIN_MUSCLE">Hypertrophy & Muscle Gain</option>
+                        <option value="IMPROVE_STRENGTH">Maximal Strength Focus</option>
+                    </select>
+                </div>
+
+                <!-- Activity Level -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between sm:col-span-2 lg:col-span-1 focus-within:border-primary transition-colors">
+
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium"
+                               for="activityLevel">Activity Level</label>
+                        <span class="material-symbols-outlined text-[20px] text-primary">bolt</span>
+
+                    </div>
+                    <select class="w-full bg-[#181818] border border-[#262626] rounded-lg py-2.5 px-3 font-body text-[15px] font-semibold text-on-surface focus:outline-none focus:border-primary transition-colors"
+                            id="activityLevel" name="activityLevel" required>
+                        <option value="SEDENTARY">Sedentary (Desk Job)</option>
+                        <option value="LIGHTLY_ACTIVE">Lightly Active (1-3 days)</option>
+                        <option value="MODERATELY_ACTIVE">Moderately Active (3-5 days)</option>
+                        <option value="VERY_ACTIVE">Very Active (6-7 days)</option>
+                        <option value="EXTRA_ACTIVE">Athlete (2x a day)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Actions -->
+        <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-4 pt-2">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[#262626] bg-[#181818] hover:bg-[#202020] text-on-surface font-label text-xs uppercase tracking-wider font-semibold transition-colors"
+               href="UserProfile.html">Cancel</a>
+            <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-primary hover:bg-[#c00016] text-white font-label text-xs uppercase tracking-wider font-bold shadow-sm transition-all active:scale-95"
+                    type="submit" id="save-btn">
+                <span class="material-symbols-outlined text-[18px]">check</span>
+                <span>Save Changes</span>
+            </button>
+        </div>
+    </form>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/edit-profile.js"></script>
+
+</body>
+</html>

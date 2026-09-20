@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Macro Calculator - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com"
+          rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com"
+          rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Geist:wght@100..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary overflow-x-hidden">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg pb-24 md:pb-stack-lg">
+
+    <!-- Back-Nav -->
+    <div class="flex items-center mb-2">
+        <a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider group"
+           href="Calculators.html">
+            <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+            Back to Calculators
+        </a>
+    </div>
+
+    <!-- Title -->
+    <div class="mb-stack-lg text-center">
+        <h1 class="font-display-lg text-display-lg text-on-surface mb-2">MACRO CALCULATOR</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Optimize your nutrition for peak
+            performance. Calculate your Total Daily Energy Expenditure (TDEE) and macronutrient split based on your
+            specific fitness goals.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+        <!-- Input Form -->
+        <div class="lg:col-span-5 border rounded-2xl p-stack-md relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 bg-surface-container-dim border-outline">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-lowest opacity-50 pointer-events-none"></div>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md relative z-10 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container" data-icon="tune">tune</span>YOUR METRICS
+            </h2>
+            <form class="relative z-10" id="macro-form">
+
+                <!--Gender -->
+                <div class="mb-6"><label
+                        class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase">Gender</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button type="button" id="male-btn" data-gender="male"
+                                class="gender-btn bg-primary-container text-white font-label-md text-[15px] font-bold uppercase tracking-wider py-3 rounded-xl border border-primary-container transition-colors duration-200">
+                            Male
+                        </button>
+                        <button type="button" id="female-btn" data-gender="female"
+                                class="gender-btn bg-surface-container-lowest text-on-surface-variant font-label-md text-[15px] font-bold uppercase tracking-wider py-3 rounded-xl border border-surface-container-highest hover:border-surface-bright transition-colors duration-200">
+                            Female
+                        </button>
+                    </div>
+                    <input type="hidden" id="gender" name="gender" value="male"></div>
+
+                <!-- Weight & Height -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                                for="weight">Weight (kg)</label><input
+                            class="font-stats-xl text-body-lg w-full bg-surface-container-lowest border border-surface-container-highest text-on-surface rounded py-3 px-3 focus:ring-primary-container focus:border-primary-container transition-colors duration-200"
+                            id="weight" min="40" max="300" step="0.1" required type="number" placeholder="85"></div>
+                    <div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                                for="height">Height (cm)</label><input
+                            class="font-stats-xl text-body-lg w-full bg-surface-container-lowest border border-surface-container-highest text-on-surface rounded py-3 px-3 focus:ring-primary-container focus:border-primary-container transition-colors duration-200"
+                            id="height" min="100" max="250" required type="number" placeholder="180"></div>
+                </div>
+
+                <!-- Age -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-3"><label
+                            class="block font-label-md text-label-md text-on-surface-variant uppercase"
+                            for="age">Age</label><span id="age-value"
+                                                       class="font-stats-xl text-primary-container text-lg font-bold">25</span>
+                    </div>
+                    <input id="age" name="age" type="range" min="15" max="100" value="25" step="1"
+                           class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary-container"
+                           required>
+                    <div class="flex justify-between mt-2"><span
+                            class="font-label-md text-label-md text-on-surface-variant">15</span><span
+                            class="font-label-md text-label-md text-on-surface-variant">100</span></div>
+                </div>
+
+                <!-- Activity Level -->
+                <div class="mb-6"><label
+                        class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase" for="activity">Activity
+                    Level</label>
+                    <select
+                        class="font-body-lg w-full bg-[#0F0F0F] border border-surface-container-highest text-on-surface rounded py-3 px-3 focus:ring-primary-container focus:border-primary-container transition-colors duration-200 cursor-pointer"
+                        id="activity" name="activity" required>
+                    <option value="1.2">Sedentary (Office Job)</option>
+                    <option value="1.375">Lightly Active (1-3 days/wk)</option>
+                    <option selected value="1.55">Moderately Active (3-5 days/wk)</option>
+                    <option value="1.725">Very Active (6-7 days/wk)</option>
+                    <option value="1.9">Extra Active (Athlete/Physical Job)</option>
+                </select>
+                </div>
+
+                <!-- Fitness Goal -->
+                <div class="mb-6"><label
+                        class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase" for="goal">Fitness
+                    Goal</label>
+                    <select class="font-body-lg w-full bg-[#0F0F0F] border border-surface-container-highest text-on-surface rounded py-3 px-3 focus:ring-primary-container focus:border-primary-container transition-colors duration-200 cursor-pointer"
+                            id="goal" name="goal" required>
+                        <option value="cut">Fat Loss (-500 cal)</option>
+                        <option selected value="maintain">Maintenance</option>
+                        <option value="bulk">Build Muscle (+500 cal)</option>
+                    </select>
+                </div>
+
+                <!-- Calculate Button -->
+                <button class="w-full mt-auto bg-primary-container text-white font-label-md text-[16px] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] shadow-lg shadow-primary-container/20"
+                        id="calculate-btn" type="submit">Calculate
+                </button>
+            </form>
+        </div>
+        <!-- Results Container -->
+        <div class="lg:col-span-7 flex flex-col" id="results-container"><!-- Empty State -->
+            <div class="bg-surface-container-dim border border-outline rounded-2xl p-stack-md flex flex-col items-center justify-center relative overflow-hidden h-full min-h-[450px] group hover:border-surface-bright transition-colors duration-300"
+                 id="empty-state">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay grayscale"
+                         style="background-image: url('../assets/images/davidlaid.jpg')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/50"></div>
+                </div>
+                <!-- Empty State Content -->
+                <div class="relative z-10 flex flex-col items-center justify-center text-center">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center border border-surface-variant mb-4 bg-background/30 backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-surface-variant text-[40px]">pie_chart</span></div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mx-auto">Enter your metrics to
+                        calculate your macros.</p></div>
+            </div>
+            <!-- Result Data -->
+            <div id="result-data" class="hidden flex-col gap-gutter h-full">
+                <!-- Total Calories Card -->
+                <div class="bg-surface-container-dim border border-outline rounded-2xl p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 min-h-[250px] shadow-2xl">
+                    <!-- Background -->
+                    <div class="absolute inset-0 z-0">
+                        <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay grayscale"
+                             style="background-image: url('../assets/images/davidlaid.jpg')"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="relative z-10 text-center w-full"><h3
+                            class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">
+                        Daily Caloric Target</h3>
+                        <div class="flex items-baseline justify-center gap-2"><span
+                                class="font-stats-xl text-[64px] md:text-[80px] text-primary-container leading-none tracking-tighter"
+                                id="target-cals">0</span><span
+                                class="font-label-md text-label-md text-primary uppercase">Kcal</span></div>
+                        <p class="font-body-md text-on-surface-variant mt-3" id="tdee-text">Maintenance TDEE: 0
+                            kcal </p></div>
+                </div>
+                <!-- Macros Breakdown -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter flex-1 min-h-0">
+                    <!-- Protein -->
+                    <div class="bg-surface-container-dim border border-outline rounded-2xl p-stack-sm flex flex-col relative group hover:border-surface-bright transition-colors duration-300 min-h-[220px]">
+                        <!-- Top -->
+                        <div class="flex justify-between items-start"><span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-widest flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[18px] text-primary-container">fitness_center</span>Protein</span><span
+                                class="font-body-md text-on-surface-variant text-sm" id="pct-protein">0%</span></div>
+                        <!-- Main Value -->
+                        <div class="flex-1 flex flex-col justify-end">
+                            <div class="flex items-baseline gap-1 mb-3"><span
+                                    class="font-stats-xl text-[42px] text-on-surface leading-none"
+                                    id="gram-protein">0</span><span
+                                    class="font-label-md text-label-md text-on-surface-variant">g</span></div>
+                            <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                <div class="macro-bar-fill bg-primary-container h-full transition-all duration-700"
+                                     style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <!-- Bottom -->
+                        <div class="text-xs font-body-md text-on-surface-variant mt-4 text-right"><span
+                                id="cal-protein">0</span> kcal
+                        </div>
+                    </div>
+
+                    <!-- Carbs -->
+                    <div class="bg-surface-container-dim border border-outline rounded-2xl p-stack-sm flex flex-col relative group hover:border-surface-bright transition-colors duration-300 min-h-[220px]">
+                        <!-- Top -->
+                        <div class="flex justify-between items-start"><span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-widest flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[18px] text-primary-container">bolt</span>Carbs</span><span
+                                class="font-body-md text-on-surface-variant text-sm" id="pct-carbs">0%</span></div>
+                        <!-- Main Value -->
+                        <div class="flex-1 flex flex-col justify-end">
+                            <div class="flex items-baseline gap-1 mb-3"><span
+                                    class="font-stats-xl text-[42px] text-on-surface leading-none"
+                                    id="gram-carbs">0</span><span
+                                    class="font-label-md text-label-md text-on-surface-variant">g</span></div>
+                            <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                <div class="macro-bar-fill bg-primary-container h-full transition-all duration-700"
+                                     style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <!-- Bottom -->
+                        <div class="text-xs font-body-md text-on-surface-variant mt-4 text-right"><span
+                                id="cal-carbs">0</span> kcal
+                        </div>
+                    </div>
+
+                    <!-- Fats -->
+                    <div class="bg-surface-container-dim border border-outline rounded-2xl p-stack-sm flex flex-col relative group hover:border-surface-bright transition-colors duration-300 min-h-[220px]">
+                        <!-- Top -->
+                        <div class="flex justify-between items-start"><span
+                                class="font-label-md text-label-md text-on-surface uppercase tracking-widest flex items-center gap-1"><span
+                                class="material-symbols-outlined text-[18px] text-primary-container">water_drop</span>Fats</span><span
+                                class="font-body-md text-on-surface-variant text-sm" id="pct-fats">0%</span></div>
+                        <!-- Main Value -->
+                        <div class="flex-1 flex flex-col justify-end">
+                            <div class="flex items-baseline gap-1 mb-3"><span
+                                    class="font-stats-xl text-[42px] text-on-surface leading-none"
+                                    id="gram-fats">0</span><span
+                                    class="font-label-md text-label-md text-on-surface-variant">g</span></div>
+                            <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+                                <div class="macro-bar-fill bg-primary-container h-full transition-all duration-700"
+                                     style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <!-- Bottom -->
+                        <div class="text-xs font-body-md text-on-surface-variant mt-4 text-right"><span
+                                id="cal-fats">0</span> kcal
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/calculator-macro.js"></script>
+
+</html>

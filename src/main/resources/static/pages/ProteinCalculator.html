@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Protein Calculator - APEXION </title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Geist:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary overflow-x-hidden">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+
+
+    <div class="mb-stack-lg relative">
+        <!-- Back Nav -->
+        <div class="mb-stack-lg text-left">
+            <div class="flex items-center mb-2">
+                <a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider group"
+                   href="Calculators.html">
+                    <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    Back to Calculators
+                </a>
+            </div>
+        </div>
+        <!-- Title -->
+        <div class="text-center pt-2">
+            <h1 class="font-display-lg text-display-lg text-on-surface mb-2 uppercase">Protein Calculator</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Determine your optimal daily
+                protein intake for peak performance.</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+        <!-- Input Form -->
+        <div class="lg:col-span-5 border rounded-2xl p-stack-md relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 bg-surface-container-dim border-outline">
+
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-lowest opacity-50 pointer-events-none"></div>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-8 relative z-10 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary-container" data-icon="tune">tune</span>
+                YOUR METRICS
+            </h2>
+            <div class="space-y-stack-sm relative z-10">
+
+                <!-- Weight Input -->
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                           for="weight">Weight (kg)</label>
+                    <input class="font-stats-xl text-body-lg" id="weight" placeholder="0.0" required="" step="0.1"
+                           type="number">
+                </div>
+
+                <!-- Activity Level -->
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase mt-4">Activity
+                        Level</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <label class="cursor-pointer">
+                            <input class="peer sr-only" name="activity" type="radio" value="sedentary">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Sedentary</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input checked="" class="peer sr-only" name="activity" type="radio" value="active">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Active</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input class="peer sr-only" name="activity" type="radio" value="very_active">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Very Active</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Goal -->
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase mt-4">Fitness
+                        Goal</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <label class="cursor-pointer">
+                            <input class="peer sr-only" name="goal" type="radio" value="maintain">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Maintain</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input checked="" class="peer sr-only" name="goal" type="radio" value="build">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Build Muscle</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input class="peer sr-only" name="goal" type="radio" value="lose">
+                            <div class="p-3 border border-outline-variant rounded-lg text-center peer-checked:border-primary-container peer-checked:bg-surface-container-lowest transition-colors hover:border-on-surface">
+                                <span class="font-label-md text-label-md text-on-surface">Lose Fat</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Calculate Button -->
+                <button class="w-full mt-auto bg-primary-container text-white font-label-md text-[16px] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] shadow-lg shadow-primary-container/20"
+                        onclick="calculateProtein()">
+                    Calculate
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Display -->
+        <div class="lg:col-span-7 flex flex-col gap-gutter" id="result-container">
+
+            <!-- Total Target Card -->
+            <div class="bg-card border border-outline rounded-2xl p-stack-md flex flex-col items-center justify-center relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 min-h-[200px] flex-grow">
+                <!-- Background Image & Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay grayscale"
+                         data-alt="Dark, moody gym setting. Close up of heavy iron barbell plates stacked on a bar. Cinematic red accent lighting cutting through shadows."
+                         style="background-image: url('../assets/images/davidlaid.jpg')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                </div>
+
+                <!-- Result Data State -->
+                <div class="relative z-10 text-center w-full hidden" id="result-data">
+                    <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-2">Daily
+                        Target</h3>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span class="font-stats-xl text-[64px] text-on-surface leading-none tracking-tighter"
+                              id="result-value">0</span>
+                        <span class="font-label-md text-label-md text-primary uppercase">g / day</span>
+                    </div>
+                    <p class="font-body-md text-on-surface-variant mt-4" id="result-range">Range: 0g - 0g</p>
+                </div>
+
+                <!-- Empty State -->
+                <div class="relative z-10 text-center w-full flex flex-col items-center justify-center gap-4"
+                     id="empty-state">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center border border-surface-variant mb-2">
+                        <span class="material-symbols-outlined text-surface-variant text-[40px]">restaurant_menu</span>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mx-auto">
+                        Enter your metrics on the left to see your result.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/calculator-protein.js"></script>
+
+</html>

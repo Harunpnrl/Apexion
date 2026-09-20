@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Profile - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased selection:bg-primary/20 selection:text-primary">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<!-- Main Content Container -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-4 md:px-8 py-8 md:py-12 pb-24">
+
+    <!-- Profile Header -->
+    <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-[#262626]">
+        <div class="hidden md:block w-36 shrink-0"></div>
+
+        <!-- Title -->
+        <div class="text-center">
+            <h1 class="font-headline text-[38px] md:text-[46px] font-bold text-on-surface uppercase tracking-tight leading-none">
+                Athlete Profile
+            </h1>
+            <p class="font-body text-[14px] md:text-[15px] text-on-surface-variant mt-2 font-normal">
+                Personal specifications, fitness metrics, and saved training regimens
+            </p>
+        </div>
+
+        <!-- Edit Profile Button -->
+        <div class="w-full md:w-36 flex justify-center md:justify-end shrink-0">
+            <a href="EditProfile.html"
+               class="inline-flex items-center gap-2 bg-[#1c1b1b] hover:bg-[#252525] text-on-surface hover:text-white border border-[#2a2a2a] hover:border-primary px-4 py-2.5 rounded-lg text-xs uppercase tracking-wider font-semibold font-label transition-all active:scale-95 group shadow-sm">
+                <span class="material-symbols-outlined text-[16px] text-primary group-hover:rotate-12 transition-transform">edit</span>
+                <span>Edit Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="profile-loading" class="flex flex-col items-center justify-center py-20">
+        <div class="w-12 h-12 border-4 border-surface-variant border-t-primary rounded-full animate-spin mb-4"></div>
+        <p class="font-headline text-lg text-on-surface-variant uppercase tracking-widest">Loading Profile...</p>
+    </div>
+
+    <!-- Profile Content -->
+    <div id="profile-content" class="flex flex-col gap-10 hidden opacity-0 transition-opacity duration-500">
+
+        <!-- PERSONAL INFORMATION -->
+        <section id="personal-information-section" class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#262626]">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                    Personal Information
+                </h2>
+            </div>
+
+            <!-- Personal Information Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <!-- First Name -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            First Name
+                        </span>
+                    <div id="user-name" class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface">
+                        --
+                    </div>
+                </div>
+
+                <!-- Last Name / Surname -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            Surname
+                        </span>
+                    <div id="user-surname" class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface">
+                        --
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            Email Address
+                        </span>
+                    <div id="user-email"
+                         class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface break-all">
+                        --
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            Phone Number
+                        </span>
+                    <div id="user-phoneNumber"
+                         class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface">
+                        --
+                    </div>
+                </div>
+
+                <!-- Gender -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            Gender
+                        </span>
+                    <div id="user-gender" class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface">
+                        --
+                    </div>
+                </div>
+
+                <!-- Birthdate -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-4 transition-colors hover:border-[#353535]">
+                        <span class="block font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium mb-1">
+                            Birthdate
+                        </span>
+                    <div id="user-birthdate" class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface">
+                        --
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITNESS PROFILE -->
+        <section id="fitness-profile-section" class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#262626]">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                    Fitness Profile
+                </h2>
+            </div>
+
+            <!-- Empty State for Fitness Profile -->
+            <div id="fitness-profile-empty"
+                 class="hidden flex flex-col items-center justify-center p-8 bg-[#131313] rounded-xl border border-[#262626] border-dashed text-center">
+                <span class="material-symbols-outlined text-[40px] text-on-surface-variant mb-3">monitor_weight</span>
+                <h3 class="font-headline text-[18px] text-on-surface mb-2">No Fitness Profile Found</h3>
+                <p class="font-body text-sm text-on-surface-variant mb-4">You haven't set up your physical metrics and
+                    goals yet.</p>
+                <a href="EditProfile.html"
+                   class="inline-flex items-center gap-2 bg-primary/20 text-primary border border-primary/50 px-4 py-2 rounded-lg text-xs font-label uppercase tracking-widest hover:bg-primary/30 transition-colors">
+                    Set Up Profile
+                </a>
+            </div>
+
+            <!-- Fitness Profile Layout -->
+            <div id="fitness-profile-data" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Height -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between hover:border-[#353535] transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium">Height</span>
+                        <span class="material-symbols-outlined text-[20px] text-primary">height</span>
+                    </div>
+                    <div class="flex items-baseline gap-1.5">
+                        <span id="user-height"
+                              class="font-headline text-[28px] md:text-[32px] font-bold text-on-surface leading-none">--</span>
+                        <span class="font-label text-xs text-on-surface-variant uppercase font-medium">cm</span>
+                    </div>
+                </div>
+
+                <!-- Weight -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between hover:border-[#353535] transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium">Weight</span>
+                        <span class="material-symbols-outlined text-[20px] text-primary">scale</span>
+                    </div>
+                    <div class="flex items-baseline gap-1.5">
+                        <span id="user-weight"
+                              class="font-headline text-[28px] md:text-[32px] font-bold text-on-surface leading-none">--</span>
+                        <span class="font-label text-xs text-on-surface-variant uppercase font-medium">kg</span>
+                    </div>
+                </div>
+
+                <!-- Fitness Goal -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between sm:col-span-2 lg:col-span-1 hover:border-[#353535] transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium">Fitness Goal</span>
+                        <span class="material-symbols-outlined text-[20px] text-primary">flag</span>
+                    </div>
+                    <div id="user-fitnessGoal"
+                         class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface mt-1">
+                        --
+                    </div>
+                </div>
+
+                <!-- Activity Level -->
+                <div class="bg-[#131313] border border-[#262626] rounded-xl p-5 flex flex-col justify-between sm:col-span-2 lg:col-span-1 hover:border-[#353535] transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-label text-[11px] md:text-[12px] uppercase tracking-widest text-on-surface-variant font-medium">Activity Level</span>
+                        <span class="material-symbols-outlined text-[20px] text-primary">bolt</span>
+                    </div>
+                    <div id="user-activityLevel"
+                         class="font-body text-[16px] md:text-[17px] font-semibold text-on-surface mt-1">
+                        --
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAVORITE EXERCISES -->
+        <section id="favorite-exercises-section" class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#262626]">
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                    <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                        Favorite Exercises
+                    </h2>
+                </div>
+                <span id="favorites-count-badge"
+                      class="font-label text-xs uppercase tracking-wider bg-[#131313] text-on-surface-variant px-2.5 py-1 rounded-md border border-[#262626]">
+                        0 Saved
+                    </span>
+            </div>
+
+            <!-- Dynamic Container for Favorite Exercise Cards -->
+            <div id="user-favoriteExercises" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+                <p class="text-on-surface-variant col-span-full py-4 text-center">Loading favorites...</p>
+            </div>
+        </section>
+
+        <!-- WORKOUTS -->
+        <section id="workouts-section" class="bg-[#181818] border border-[#262626] rounded-2xl p-6 md:p-8">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-[#262626]">
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                    <h2 class="font-headline text-[22px] md:text-[24px] font-bold text-on-surface uppercase tracking-wider">
+                        Workouts
+                    </h2>
+                </div>
+                <span id="workouts-count-badge"
+                      class="font-label text-xs uppercase tracking-wider bg-[#131313] text-on-surface-variant px-2.5 py-1 rounded-md border border-[#262626]">
+                        0 Routines Active
+                    </span>
+            </div>
+
+            <!-- Dynamic Container for Workout Cards -->
+            <div id="user-workouts" class="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+                <p class="text-on-surface-variant col-span-full py-4 text-center">Loading workouts...</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/user-profile.js"></script>
+
+</html>

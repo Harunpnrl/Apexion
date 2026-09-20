@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>How to Build Muscle - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Geist:wght@500;700&amp;family=Inter:wght@400&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col gap-stack-lg">
+
+    <!-- Back Nav -->
+    <div class="flex items-center mb-2">
+        <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md uppercase tracking-wider group"
+           href="Home.html">
+            <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>Back
+            to Home</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col gap-stack-sm items-center text-center max-w-3xl mx-auto">
+        <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface uppercase tracking-tighter">
+            How to Build Muscle</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Understand the key training, nutrition, and recovery principles involved in muscle growth.
+        </p>
+    </section>
+
+    <!-- Main Content Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+        <!-- Article Content -->
+        <div class="lg:col-span-8 flex flex-col gap-stack-lg">
+
+            <!-- How Muscle Growth Works -->
+            <article class="bg-surface-container-low border border-surface-container-high rounded-xl p-gutter overflow-hidden relative group transition-colors duration-300 hover:border-primary-container/30 hover:bg-[#151515]">
+                <div class="h-48 w-full bg-surface-container-highest rounded-lg mb-gutter overflow-hidden relative">
+                    <img class="w-full h-full object-cover mix-blend-luminosity opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                         data-alt="A highly detailed close-up of muscular tissue fibers expanding under tension, rendered in a high-contrast dark mode aesthetic with deep shadows and glowing red highlights, illustrating cellular hypertrophy in a modern fitness science style."
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYwZtUZUY0LZ0x7YT6oJyJnGTtl56CFCKII1guWegpWTK38oEw5zo8IUScNUw4556vlM5vb5EUj21L6TYzb-B58QXAatGfpLe0f3v01qMypKy3hkN4z6w4Tnf9M3taxOmcNPKtph4IVL0krRntbQiFQfFO-H5sFGt_LuE836qi9CuDEc2IjqfXn1qcyioBdnmo_Q8DxC28Kktz8Q3Ptf3skLicnYxlAxDkd2btv4YVmeyJ-nWDQyi">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1b1c1c] to-transparent"></div>
+                </div>
+                <h2 class="font-headline-md text-headline-md text-primary-container uppercase mb-stack-sm">How Muscle
+                    Growth Works</h2>
+                <div class="font-body-lg text-body-lg text-on-surface space-y-4">
+                    <p class="">Muscle growth, or hypertrophy, is the result of applying a specific stress to muscle
+                        fibers, causing micro-tears. In response, the body repairs these fibers, fusing them to form new
+                        muscle protein strands or myofibrils, which increase in thickness and number.</p>
+                    <p class="">This adaptation stimulus is crucial. Without forcing the muscle beyond its current
+                        capacity, there is no biological necessity for growth. The central nervous system and metabolic
+                        pathways work in tandem to facilitate this process, provided the right conditions are met.</p>
+                </div>
+            </article>
+
+            <!-- Resistance Training (Bento Grid) -->
+            <section class="flex flex-col gap-stack-md">
+                <h2 class="font-headline-md text-headline-md text-on-surface uppercase pl-2 border-l-4 border-primary-container">
+                    Resistance Training Pillars</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+                    <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md flex flex-col gap-2 hover:border-primary-container/50 transition-colors relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-2 text-primary-container mb-2 relative z-10">
+                            <span class="material-symbols-outlined"
+                                  style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+                            <h3 class="font-label-md text-label-md uppercase tracking-wider">Volume</h3>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant relative z-10">The total amount of
+                            work performed
+                            (sets × reps × weight). Adequate volume is required to provide a sufficient growth stimulus,
+                            generally 10-20 hard sets per muscle group per week.</p>
+                    </div>
+
+                    <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md flex flex-col gap-2 hover:border-primary-container/50 transition-colors relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-2 text-primary-container mb-2 relative z-10">
+                            <span class="material-symbols-outlined"
+                                  style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                            <h3 class="font-label-md text-label-md uppercase tracking-wider">Intensity</h3>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant relative z-10">The effort level
+                            relative to your
+                            maximum capability. High intensity (lifting heavy relative to your 1RM) recruits
+                            high-threshold motor units essential for hypertrophy.</p>
+                    </div>
+
+                    <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md flex flex-col gap-2 hover:border-primary-container/50 transition-colors relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-2 text-primary-container mb-2 relative z-10">
+                            <span class="material-symbols-outlined"
+                                  style="font-variation-settings: 'FILL' 1;">dashboard_customize</span>
+                            <h3 class="font-label-md text-label-md uppercase tracking-wider">Exercise Selection</h3>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant relative z-10">Choosing movements
+                            that effectively
+                            target the intended musculature across a full range of motion. A mix of compound and
+                            isolation exercises is optimal...</p>
+                    </div>
+
+                    <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md flex flex-col gap-2 hover:border-primary-container/50 transition-colors relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-2 text-primary-container mb-2 relative z-10">
+                            <span class="material-symbols-outlined"
+                                  style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                            <h3 class="font-label-md text-label-md uppercase tracking-wider">Progressive Overload</h3>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant relative z-10">Consistently
+                            increasing the demands on the musculoskeletal system over time (more weight, more reps, or
+                            better execution) to force continuous adaptation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Training to Failure -->
+            <article
+                    class="bg-surface-container border-y border-surface-container-high py-stack-md px-margin-mobile -mx-margin-mobile md:mx-0 md:px-stack-lg md:rounded-xl md:border">
+                <h2 class="font-headline-md text-headline-md text-on-surface uppercase mb-stack-sm flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary-container text-3xl">warning</span>
+                    Training Close Enough to Failure
+                </h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+                    "Proximity to failure" refers to how many repetitions in reserve (RIR) you have before absolute
+                    muscular failure. Absolute failure is when you cannot complete another concentric rep despite
+                    maximal effort.
+                </p>
+
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                    For hypertrophy, it is generally recommended to train most sets with 1-3 RIR. Training to absolute
+                    failure on every set creates disproportionate systemic fatigue, extending recovery times and
+                    potentially hindering total weekly volume. Save absolute failure for isolation movements or the
+                    final set of an exercise.
+                </p>
+            </article>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 flex flex-col gap-stack-md">
+
+            <!-- Nutrition Card -->
+            <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md hover:border-surface-bright transition-colors">
+                <h3 class="font-headline-md text-headline-md text-on-surface uppercase mb-4 border-b border-surface-container-highest pb-2 flex items-center justify-between">
+                    Nutrition
+                    <span class="material-symbols-outlined text-primary-container">restaurant</span>
+                </h3>
+                <ul class="space-y-4 font-body-md text-on-surface-variant">
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm mt-1">egg_alt</span>
+                        <div class="">
+                            <strong class="text-on-surface font-label-md uppercase tracking-wider block">Protein</strong>
+                            Essential for muscle repair. Aim for 1.6-2.2g per kg of body weight.
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm mt-1">speed</span>
+                        <div class="">
+                            <strong class="text-on-surface font-label-md uppercase tracking-wider block">Calories</strong>
+                            A slight surplus (200-300 calories) facilitates optimal growth environments.
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary text-sm mt-1">bolt</span>
+                        <div class="">
+                            <strong class="text-on-surface font-label-md uppercase tracking-wider block">Carbs &amp;
+                                Fats</strong>
+                            Carbs fuel intense training; fats support hormonal balance (like testosterone).
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recovery Card -->
+            <div class="bg-surface-container-low border border-surface-container-high rounded-xl p-stack-md hover:border-surface-bright transition-colors">
+                <h3 class="font-headline-md text-headline-md text-on-surface uppercase mb-4 border-b border-surface-container-highest pb-2 flex items-center justify-between">
+                    Recovery
+                    <span class="material-symbols-outlined text-primary-container">bedtime</span>
+                </h3>
+                <div class="font-body-md text-on-surface-variant space-y-3">
+                    <p class="">Muscle is broken down in the gym and built in bed. </p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li class=""><strong>Sleep:</strong> 7-9 hours of quality sleep for hormone regulation (HGH
+                            release).
+                        </li>
+
+                        <li class=""><strong>Rest Days:</strong> Necessary to prevent overtraining and systemic fatigue
+                            accumulation.
+                        </li>
+
+                        <li class=""><strong>Stress Management:</strong> High cortisol can be catabolic
+                            (muscle-wasting).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+
+</html>

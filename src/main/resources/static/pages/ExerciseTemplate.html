@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Exercises - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Geist:wght@100..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<!-- Main Detail Content -->
+<main class="flex-1 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 py-8 lg:py-10">
+
+    <!-- Back Nav -->
+    <div class="mb-8">
+        <a href="ExerciseLibrary.html"
+           class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary-container transition-all group cursor-pointer w-fit">
+            <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-1.5 transition-transform">arrow_back</span>
+            <span class="font-label-md text-[14px] uppercase tracking-wider font-semibold">Back to Library</span>
+        </a>
+    </div>
+
+    <!-- 2-Column Balanced Content Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+        <!-- ANIMATION PANEL -->
+        <div class="lg:col-span-6 xl:col-span-6 w-full lg:sticky lg:top-[96px]">
+            <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-square max-h-[580px] bg-[#161616] rounded-2xl overflow-hidden border border-[#262626] shadow-[0_12px_36px_rgba(0,0,0,0.5)] group flex items-center justify-center">
+
+                <!-- Subtle Radial Glow Background -->
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,28,37,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+
+                <!-- Exercise Animation/Visual -->
+                <img id="exercise-image" alt="Exercise Animation"
+                     class="w-full h-full object-contain p-4 lg:p-6 transition-transform duration-700 ease-out"
+                     src="">
+
+                <!-- Bottom Vignette Overlay -->
+                <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#131313]/90 via-[#131313]/30 to-transparent pointer-events-none"></div>
+            </div>
+        </div>
+
+        <!-- EXERCISE INFORMATION -->
+        <div class="lg:col-span-6 xl:col-span-6 flex flex-col pt-1 lg:pt-0">
+
+            <!-- 1. Exercise Name / Title -->
+            <h1 id="exercise-name"
+                class="font-headline-lg text-[36px] sm:text-[44px] lg:text-[50px] font-bold text-on-surface uppercase tracking-tight leading-[1.08] mb-5">
+                Barbell Bench Press
+            </h1>
+
+            <!-- 2. Metadata Badges / Tags -->
+            <div class="flex flex-wrap items-center gap-2.5 mb-7">
+                <div class="inline-flex items-center gap-2 bg-[#1b1c1c] border border-[#2c2b2b] rounded-lg px-3.5 py-2 hover:border-primary-container/60 transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container fill">fitness_center</span>
+                    <span id="exercise-muscle"
+                          class="font-label-md text-[13px] text-on-surface uppercase tracking-wider font-semibold">Chest</span>
+                </div>
+                <div class="inline-flex items-center gap-2 bg-[#1b1c1c] border border-[#2c2b2b] rounded-lg px-3.5 py-2 hover:border-primary-container/60 transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">speed</span>
+                    <span id="exercise-difficulty"
+                          class="font-label-md text-[13px] text-on-surface uppercase tracking-wider font-semibold">Intermediate</span>
+                </div>
+                <div class="inline-flex items-center gap-2 bg-[#1b1c1c] border border-[#2c2b2b] rounded-lg px-3.5 py-2 hover:border-primary-container/60 transition-colors cursor-default">
+                    <span class="material-symbols-outlined text-[18px] text-primary-container">build</span>
+                    <span id="exercise-equipment"
+                          class="font-label-md text-[13px] text-on-surface uppercase tracking-wider font-semibold">Barbell</span>
+                </div>
+            </div>
+
+            <!-- 3. Description Section Card -->
+            <div class="group relative bg-[#181818] border border-[#262626] rounded-xl p-6 sm:p-7 mb-5 overflow-hidden transition-all duration-300 hover:bg-surface hover:border-primary-container/40">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+                <h2 class="font-headline-md text-[20px] text-on-surface uppercase tracking-wide mb-3 relative z-10 flex items-center gap-2.5 font-bold">
+                    <span class="material-symbols-outlined text-inverse-primary group-hover:text-primary transition-colors text-[20px]">info</span>
+                    Description
+                </h2>
+                <p id="exercise-desc" class="relative z-10 font-body-md text-[15px] text-white leading-relaxed">
+                    A foundational upper-body compound exercise targeting the pectoralis major, anterior deltoids, and
+                    triceps brachii. Performed lying supine on a flat bench, pressing a barbell upward from sternum
+                    height until full arm extension.
+                </p>
+            </div>
+
+            <!-- 4. Instructions Section Card -->
+            <div class="group relative bg-[#181818] border border-[#262626] rounded-xl p-6 sm:p-7 overflow-hidden transition-all duration-300 hover:bg-surface hover:border-primary-container/40">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+                <h2 class="font-headline-md text-[20px] text-white uppercase tracking-wide mb-4 relative z-10 flex items-center gap-2.5 font-bold">
+                    <span class="material-symbols-outlined text-inverse-primary group-hover:text-primary transition-colors text-[20px]">format_list_numbered</span>
+                    Instructions
+                </h2>
+                <ol id="exercise-instructions"
+                    class="relative z-10 list-decimal list-outside ml-5 space-y-3.5 font-body-md text-[15px] text-white marker:text-primary hover:marker:text-primary-container marker:font-bold">
+                    <li class="pl-2">Lie flat on the bench with your eyes directly under the racked barbell.</li>
+                    <li class="pl-2">Grip the bar slightly wider than shoulder-width with wrists straight.</li>
+                    <li class="pl-2">Unrack and lower the bar under control toward mid-chest while tucking elbows at
+                        roughly 45 degrees.
+                    </li>
+                    <li class="pl-2">Press the bar upward explosively back to the starting position without locking
+                        elbows violently.
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/exercise-template-load.js"></script>
+
+</html>

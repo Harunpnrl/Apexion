@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Water Intake Calculator - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&amp;family=Geist:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body class="min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary overflow-x-hidden">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg pb-24 md:pb-stack-lg">
+
+    <!-- Back Nav -->
+    <div class="flex items-center mb-2">
+        <a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider group"
+           href="Calculators.html">
+            <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+            Back to Calculators
+        </a>
+    </div>
+
+    <!-- Title -->
+    <div class="mb-stack-lg text-center">
+        <h1 class="font-display-lg text-display-lg text-on-surface mb-2 uppercase tracking-tighter">HYDRATION
+            TARGET</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Calculate your daily water intake
+            for peak performance.</p>
+    </div>
+
+    <!-- Input Form -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+        <div class="lg:col-span-5 border border-outline bg-surface-container-dim rounded-2xl p-stack-md relative overflow-hidden group hover:border-surface-bright transition-colors duration-300">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-lowest opacity-50 pointer-events-none"></div>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md relative z-10 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+                YOUR METRICS
+            </h2>
+            <form class="relative z-10" id="calculator-form">
+                <!-- Weight -->
+                <div class="mt-10 mb-10">
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                           for="weight">Weight (kg)</label>
+                    <input class="font-stats-xl text-body-lg" id="weight" placeholder="0.0" required="" step="0.1"
+                           type="number">
+                </div>
+
+                <!-- Activity Level -->
+                <div class="mb-12 flex flex-col">
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                           for="activity">Activity Level</label>
+                    <div class="relative">
+                        <select class="font-body-lg w-full bg-surface-dim border border-surface-container-highest text-on-surface rounded py-3 px-3 focus:ring-primary-container focus:border-primary-container transition-colors duration-200 cursor-pointer"
+                                id="activity" name="activity">
+                            <option value="low">Low (Rest Day)</option>
+                            <option selected="" value="moderate">Moderate (Standard Training)</option>
+                            <option value="high">High (Intense/Endurance)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Calculate Button -->
+                <button class="w-full mt-auto bg-primary-container text-white font-label-md text-[16px] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] shadow-lg shadow-primary-container/20"
+                        id="calculate-btn" type="submit">
+                    Calculate
+                </button>
+            </form>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="lg:col-span-7 flex flex-col" id="calculator-results">
+
+            <!-- Result Card -->
+            <div class="bg-surface-container-dim border border-outline rounded-2xl p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 min-h-[450px] shadow-2xl flex-grow">
+
+                <!-- Background Image & Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay grayscale"
+                         style="background-image: url('../assets/images/davidlaid.jpg')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                </div>
+
+                <!-- Result Content -->
+                <div class="relative z-10 text-center w-full hidden flex-col items-center justify-center gap-6"
+                     id="result-data">
+
+                    <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">
+                        Daily Goal
+                    </h3>
+
+                    <div class="flex items-baseline justify-center gap-2">
+                <span class="font-stats-xl text-[80px] md:text-[100px] text-primary-container leading-none tracking-tighter"
+                      id="result-liters">0.0</span>
+
+                        <span class="font-label-md text-label-md text-primary uppercase">
+                    Liters
+                </span>
+                    </div>
+
+                    <div class="font-label-md text-label-md text-on-surface-variant">
+                        (<span id="result-ml">0</span> ml)
+                    </div>
+
+                    <div class="w-full max-w-md h-2 bg-surface-container-high rounded-full overflow-hidden mt-2">
+                        <div class="h-full bg-primary-container w-0 transition-all duration-1000 ease-out"
+                             id="progress-bar"></div>
+                    </div>
+
+                    <p class="font-body-md text-[16px] text-on-surface-variant max-w-md mx-auto leading-relaxed">
+                        Stay hydrated to maintain strength and recovery.
+                    </p>
+
+                </div>
+
+                <!-- Empty State -->
+                <div class="relative z-10 text-center w-full flex flex-col items-center justify-center gap-4"
+                     id="empty-state">
+
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center border border-surface-variant mb-2">
+                <span class="material-symbols-outlined text-surface-variant text-[40px]">
+                    water_drop
+                </span>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mx-auto">
+                        Enter your metrics to calculate your water intake.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+</body>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/calculator-water.js"></script>
+
+</html>

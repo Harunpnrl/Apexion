@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>BMI Calculator - APEXION</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../js/tailwind-config.js"></script>
+
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden">
+
+<!-- Dynamic Header -->
+<div id="site-header" style="min-height: 70px;"></div>
+
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+
+    <!-- Back Nav -->
+    <div class="mb-stack-lg text-left">
+        <div class="flex items-center mb-4">
+            <a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md uppercase tracking-wider group"
+               href="Calculators.html">
+                <span class="material-symbols-outlined text-[18px] transition-transform group-hover:-translate-x-1">arrow_back</span>
+                Back to Calculators
+            </a>
+        </div>
+        <h1 class="font-display-lg text-display-lg text-on-surface mb-2 text-center uppercase tracking-tighter">BMI
+            CALCULATOR</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto text-center">
+            Enter your details to calculate your Body Mass Index.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+        <!-- Input Form -->
+        <div class="lg:col-span-5 border rounded-2xl p-stack-md relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 bg-surface-container-dim border-outline">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-lowest opacity-50 pointer-events-none"></div>
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md relative z-10 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-container" data-icon="tune">tune</span>
+                YOUR METRICS
+            </h2>
+
+            <form class="relative z-10" id="bmiForm">
+                <!-- Weight -->
+                <div class="mt-12">
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase"
+                           for="weight">Weight (kg)</label>
+                    <input class="font-stats-xl text-body-lg" id="weight" placeholder="0.0" required="" step="0.1"
+                           type="number">
+                </div>
+
+                <!-- Height -->
+                <div class="mt-6 mb-12">
+                    <label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase mt-4"
+                           for="height">Height (cm)</label>
+                    <input class="font-stats-xl text-body-lg" id="height" placeholder="0.0" required="" step="0.1"
+                           type="number">
+                </div>
+
+                <!-- Calculate Button -->
+                <button class="w-full mt-auto bg-primary-container text-white font-label-md text-[16px] font-bold uppercase tracking-widest py-4 rounded-xl hover:bg-primary-hover transition-colors duration-200 active:scale-[0.98] shadow-lg shadow-primary-container/20"
+                        id="calculate-btn" type="submit">
+                    Calculate
+                </button>
+            </form>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="lg:col-span-7 flex flex-col" id="results-container">
+            <div class="bg-surface-container-dim border border-outline rounded-2xl p-8 lg:p-12 flex flex-col items-center justify-center relative overflow-hidden group hover:border-surface-bright transition-colors duration-300 min-h-[450px] shadow-2xl flex-grow">
+                <!-- Background Image & Overlay -->
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay grayscale"
+                         style="background-image: url('../assets/images/davidlaid.jpg')"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                </div>
+                <!-- Result Content -->
+                <div class="relative z-10 text-center w-full hidden flex flex-col items-center justify-center gap-6"
+                     id="resultContent">
+                    <h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Your
+                        Result</h3>
+                    <div class="flex items-baseline justify-center gap-2">
+                        <span class="font-stats-xl text-[80px] md:text-[100px] text-primary-container leading-none tracking-tighter"
+                              id="bmiValue">--</span>
+                    </div>
+                    <div class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight"
+                         id="bmiCategory">--
+                    </div>
+                    <div class="w-16 h-1 bg-surface-variant rounded-full my-2"></div>
+                    <p class="font-body-md text-[16px] text-on-surface-variant max-w-md mx-auto leading-relaxed"
+                       id="bmiExplanation">
+                        --
+                    </p>
+                </div>
+
+                <!-- Empty State -->
+                <div class="relative z-10 text-center w-full flex flex-col items-center justify-center gap-4"
+                     id="emptyState">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center border border-surface-variant mb-2">
+                        <span class="material-symbols-outlined text-surface-variant text-[40px]">monitor_weight</span>
+                    </div>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mx-auto">
+                        Enter your metrics on the left to see your result.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Dynamic Footer -->
+<div id="site-footer" style="min-height: 70px;"></div>
+
+<script src="../js/global.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/calculator-bmi.js"></script>
+
+</body>
+</html>

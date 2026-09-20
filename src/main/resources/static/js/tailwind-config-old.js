@@ -1,0 +1,92 @@
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "surface-container-low": "#1b1c1c",
+                "on-primary-fixed": "#410003",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-tertiary-fixed-variant": "#474646",
+                "surface-container-high": "#2a2a2a",
+                "on-tertiary-fixed": "#1c1b1b",
+                "on-secondary-fixed-variant": "#474746",
+                "on-tertiary-container": "#fefaf9",
+                "surface-tint": "#ffb4ac",
+                "outline": "#ae8884",
+                "background": "#131313",
+                "surface-variant": "#353535",
+                "on-tertiary": "#313030",
+                "on-primary-fixed-variant": "#93000e",
+                "on-surface-variant": "#e7bdb8",
+                "secondary-container": "#474746",
+                "on-secondary-container": "#b7b5b4",
+                "on-error-container": "#ffdad6",
+                "error-container": "#93000a",
+                "primary": "#ffb4ac",
+                "surface-dim": "#131313",
+                "primary-fixed": "#ffdad6",
+                "surface-container-highest": "#353535",
+                "surface-container-lowest": "#0e0e0e",
+                "tertiary-fixed": "#e5e2e1",
+                "surface": "#131313",
+                "on-surface": "#e4e2e1",
+                "on-primary-container": "#fffaf9",
+                "primary-fixed-dim": "#ffb4ac",
+                "secondary-fixed-dim": "#c8c6c5",
+                "primary-container": "#e31c25",
+                "outline-variant": "#5d3f3c",
+                "inverse-primary": "#c00016",
+                "error": "#ffb4ab",
+                "on-error": "#690005",
+                "inverse-surface": "#e4e2e1",
+                "tertiary-fixed-dim": "#c8c6c5",
+                "secondary": "#c8c6c5",
+                "surface-bright": "#393939",
+                "on-secondary": "#313030",
+                "secondary-fixed": "#e5e2e1",
+                "surface-container": "#1f2020",
+                "on-background": "#e4e2e1",
+                "inverse-on-surface": "#303030",
+                "tertiary-container": "#757373",
+                "on-primary": "#690007",
+                "tertiary": "#c8c6c5"
+            },
+            borderRadius: {
+                "DEFAULT": "0.5rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            spacing: {
+                "container-max": "1280px",
+                "stack-lg": "48px",
+                "stack-md": "24px",
+                "base": "8px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "margin-desktop": "40px",
+                "stack-sm": "12px"
+            },
+            fontFamily: {
+                "headline-lg": ["Archivo Narrow"],
+                "headline-md": ["Archivo Narrow"],
+                "body-lg": ["Inter"],
+                "stats-xl": ["Geist"],
+                "headline-lg-mobile": ["Archivo Narrow"],
+                "display-lg": ["Archivo Narrow"],
+                "label-md": ["Geist"],
+                "body-md": ["Inter"]
+            },
+            fontSize: {
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "stats-xl": ["40px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+        }
+    }
+};

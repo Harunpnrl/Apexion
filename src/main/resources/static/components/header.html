@@ -1,0 +1,64 @@
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-surface-variant sticky top-0 z-50 w-full h-[70px] flex items-center px-4 md:px-8">
+    <div class="w-full flex justify-between items-center relative">
+
+        <!-- Logo -->
+        <div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary-container cursor-pointer active:scale-95 transition-transform z-10">
+            <a href="Home.html" class="block">APEXION</a>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 w-max">
+            <a class="hover-link text-white font-headline-md text-headline-md"
+               href="ExerciseLibrary.html">LIBRARY</a>
+            <a class="hover-link text-white font-headline-md text-headline-md"
+               href="WorkoutBuilder.html">BUILDER</a>
+            <a class="hover-link text-white font-headline-md text-headline-md"
+               href="Calculators.html">CALCULATORS</a>
+            <a class="hover-link text-white font-headline-md text-headline-md"
+               href="MuscleLibrary.html">MUSCLES</a>
+        </div>
+
+        <!-- Search and Auth -->
+        <div class="hidden md:flex items-center gap-6 z-10">
+            <div class="relative">
+                <input class="bg-surface-container-low border border-surface-variant rounded-DEFAULT py-2 pl-4 pr-10 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all text-sm"
+                       placeholder="Search..." type="text">
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary-container text-[20px] pointer-events-none">search</span>
+            </div>
+
+            <div id="auth-container" class="flex items-center gap-4"> </div>
+        </div>
+
+    </div>
+</header>
+
+<!-- SideNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-lowest border-t border-surface-variant z-50 pb-safe">
+    <div class="flex justify-around items-center py-3 px-margin-mobile">
+        <a class="flex flex-col items-center gap-1 text-white hover:text-primary-container" href="Home.html">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+            <span class="font-label-md text-[10px]">Home</span>
+        </a>
+
+        <a class="flex flex-col items-center gap-1 text-white hover:text-primary-container" href="ExerciseLibrary.html">
+            <span class="material-symbols-outlined">fitness_center</span>
+            <span class="font-label-md text-[10px]">Exercises</span>
+        </a>
+
+        <a class="flex flex-col items-center gap-1 text-white hover:text-primary-container" href="WorkoutBuilder.html">
+            <span class="material-symbols-outlined">architecture</span>
+            <span class="font-label-md text-[10px]">Builder</span>
+        </a>
+
+        <a class="flex flex-col items-center gap-1 text-white hover:text-primary-container" href="Calculators.html">
+            <span class="material-symbols-outlined">calculate</span>
+            <span class="font-label-md text-[10px]">Calculators</span>
+        </a>
+
+        <a class="flex flex-col items-center gap-1 text-white hover:text-primary-container" href="MuscleLibrary.html">
+            <span class="material-symbols-outlined">accessibility_new</span>
+            <span class="font-label-md text-[10px]">Muscles</span>
+        </a>
+    </div>
+</nav>
