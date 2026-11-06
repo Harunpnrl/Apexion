@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/muscle-groups")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class MuscleGroupController {
 
     private final MuscleGroupService muscleGroupService;

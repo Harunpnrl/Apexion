@@ -78,14 +78,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             panelExercises.innerHTML = exercisesArray.map(ex =>
                 `<li class="flex items-center gap-3">
                     <span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>
-                    <span>${ex}</span>
+                    <span>${escapeHtml(ex)}</span>
                 </li>`
             ).join('');
 
             const synergistsArray = data.synergistMuscles ? data.synergistMuscles.split(',').map(s => s.trim()) : [];
             panelSynergists.innerHTML = synergistsArray.map(syn =>
                 `<span class="font-label-md text-label-md bg-surface-dim px-3 py-1.5 rounded-md text-on-surface border border-surface-variant shadow-sm">
-                    ${syn}
+                    ${escapeHtml(syn)}
                 </span>`
             ).join('');
 

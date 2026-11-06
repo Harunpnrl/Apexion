@@ -2,13 +2,21 @@ function calculateProtein() {
     const weightInput = document.getElementById('weight').value;
     const weight = parseFloat(weightInput);
 
-    if (isNaN(weight) || weight <= 0) {
-        alert("Please enter a valid weight.");
+    if (!Number.isFinite(weight) || weight < 20 || weight > 300) {
+        alert("Please enter a valid weight between 20 and 300 kg.");
         return;
     }
 
-    const goal = document.querySelector('input[name="goal"]:checked').value;
-    const activity = document.querySelector('input[name="activity"]:checked').value;
+    const selectedGoal = document.querySelector('input[name="goal"]:checked');
+    const selectedActivity = document.querySelector('input[name="activity"]:checked');
+
+    if (!selectedGoal || !selectedActivity) {
+        alert("Please select a fitness goal and activity level.");
+        return;
+    }
+
+    const goal = selectedGoal.value;
+    const activity = selectedActivity.value;
 
     let multiplierLow = 1.6;
     let multiplierHigh = 2.2;

@@ -2,6 +2,7 @@ package com.hbpnrl.apexion.config;
 
 import com.hbpnrl.apexion.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -27,6 +29,9 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
+    @Value("${app.cors.allowed-origins:http://localhost:8080}")
+    private String allowedOrigins;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -35,7 +40,18 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
-                        .requestMatchers("/assets/**", "/static/**", "/images/**", "/*.webp", "/*.png", "/*.jpg").permitAll()
+                        .requestMatchers(
+                                "/pages/**",
+                                "/components/**",
+                                "/css/**",
+                                "/js/**",
+                                "/assets/**",
+                                "/static/**",
+                                "/images/**",
+                                "/*.webp",
+                                "/*.png",
+                                "/*.jpg"
+                        ).permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/exercises/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/muscle-groups/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/muscle-info/**").permitAll()
@@ -53,7 +69,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        List<String> origins = Arrays.stream(allowedOrigins.split(","))
+                .map(String::trim)
+                .filter(origin -> !origin.isEmpty())
+                .toList();
+        configuration.setAllowedOrigins(origins);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(false);

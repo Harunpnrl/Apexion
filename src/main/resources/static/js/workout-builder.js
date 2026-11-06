@@ -73,8 +73,8 @@ function renderLibrary() {
                     <span class="material-symbols-outlined text-[24px]">fitness_center</span>
                 </div>
                 <div>
-                    <h4 class="font-body-md text-[16px] font-semibold text-on-surface leading-tight">${ex.name}</h4>
-                    <p class="font-label-md text-[12px] text-on-surface-variant mt-1 uppercase tracking-wider">${primaryMuscle}</p>
+                    <h4 class="font-body-md text-[16px] font-semibold text-on-surface leading-tight">${escapeHtml(ex.name)}</h4>
+                    <p class="font-label-md text-[12px] text-on-surface-variant mt-1 uppercase tracking-wider">${escapeHtml(primaryMuscle)}</p>
                 </div>
             </div>
             <button onclick="addExercise(${ex.id})" title="Add to Workout" class="w-10 h-10 rounded-full bg-surface-container-highest border border-surface-variant flex items-center justify-center text-primary-container hover:bg-primary-container hover:text-white transition-all shrink-0">
@@ -126,7 +126,7 @@ function renderWorkout() {
             <div class="flex items-center justify-between border-b border-surface-variant pb-3">
                 <div class="flex items-center gap-2">
                     <span class="text-on-surface-variant font-headline-lg text-[20px] w-6">${index + 1}.</span>
-                    <h4 class="font-body-md text-[16px] font-semibold text-on-surface truncate max-w-[200px]" title="${item.name}">${item.name}</h4>
+                    <h4 class="font-body-md text-[16px] font-semibold text-on-surface truncate max-w-[200px]" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</h4>
                 </div>
                 <div class="flex gap-1 shrink-0">
                     <button onclick="moveUp(${index})" title="Move Up" class="p-1 rounded hover:bg-surface-variant text-on-surface-variant transition-colors" ${index === 0 ? 'disabled style="opacity: 0.3; cursor: not-allowed;"' : ''}>

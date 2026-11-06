@@ -20,13 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const weight = parseFloat(weightInput.value);
 
-        if (isNaN(weight) || weight <= 0) {
-            alert('Please enter a valid weight.');
+        if (!Number.isFinite(weight) || weight < 20 || weight > 300) {
+            alert('Please enter a valid weight between 20 and 300 kg.');
             return;
         }
 
         const activityLevel = activitySelect.value;
         const multiplier = multipliers[activityLevel];
+
+        if (!Number.isFinite(multiplier)) {
+            alert('Please select a valid activity level.');
+            return;
+        }
 
         const totalMl = weight * multiplier;
         const totalLiters = (totalMl / 1000).toFixed(1);

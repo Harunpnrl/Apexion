@@ -1,5 +1,14 @@
 const API_BASE_URL = 'http://localhost:8080/api/v1';
 
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 function logout() {
     localStorage.removeItem('apexion_token');
     window.location.href = 'LoginRegister.html';

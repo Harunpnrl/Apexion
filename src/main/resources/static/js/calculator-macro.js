@@ -39,8 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const activityMulti = parseFloat(document.getElementById('activity').value);
         const goal = document.getElementById('goal').value;
 
-        if (isNaN(age) || isNaN(weightKg) || isNaN(heightCm)) {
-            alert("Please fill in all numerical fields.");
+        const validActivities = ['1.2', '1.375', '1.55', '1.725', '1.9'];
+        const validGoals = ['cut', 'maintain', 'bulk'];
+        const isValidGender = gender === 'male' || gender === 'female';
+        const isValidAge = Number.isFinite(age) && age >= 15 && age <= 100;
+        const isValidWeight = Number.isFinite(weightKg) && weightKg >= 20 && weightKg <= 300;
+        const isValidHeight = Number.isFinite(heightCm) && heightCm >= 100 && heightCm <= 250;
+        const isValidActivity = validActivities.includes(String(activityMulti));
+        const isValidGoal = validGoals.includes(goal);
+
+        if (!isValidGender || !isValidAge || !isValidWeight || !isValidHeight || !isValidActivity || !isValidGoal) {
+            alert('Please enter valid values: age 15-100, weight 20-300 kg, height 100-250 cm, and select valid activity and goal options.');
             return;
         }
 

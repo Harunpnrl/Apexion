@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/profiles")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class FitnessProfileController {
 
     private final FitnessProfileService fitnessProfileService;

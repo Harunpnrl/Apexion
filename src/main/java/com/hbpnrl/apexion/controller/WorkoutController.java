@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/workouts")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class WorkoutController {
 
     private final WorkoutService workoutService;

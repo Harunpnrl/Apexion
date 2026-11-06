@@ -36,8 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const height = parseFloat(document.getElementById('height').value);
         const activityFactor = parseFloat(document.getElementById('activity').value);
 
-        if (isNaN(age) || isNaN(weight) || isNaN(height)) {
-            alert("Please fill in all numerical fields.");
+        const validActivities = ['1.2', '1.375', '1.55', '1.725', '1.9'];
+        const isValidGender = gender === 'male' || gender === 'female';
+        const isValidAge = Number.isFinite(age) && age >= 15 && age <= 100;
+        const isValidWeight = Number.isFinite(weight) && weight >= 20 && weight <= 300;
+        const isValidHeight = Number.isFinite(height) && height >= 100 && height <= 250;
+        const isValidActivity = validActivities.includes(String(activityFactor));
+
+        if (!isValidGender || !isValidAge || !isValidWeight || !isValidHeight || !isValidActivity) {
+            alert('Please enter valid values: age 15-100, weight 20-300 kg, height 100-250 cm, and select an activity level.');
             return;
         }
 

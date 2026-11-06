@@ -165,7 +165,7 @@ function renderFavoriteExercises(exercises) {
 
         card.innerHTML = `
                 <div class="relative h-44 w-full bg-[#111111] shrink-0 flex items-center justify-center border-b border-[#2A2A2A]/50 overflow-hidden">
-                    <img src="${imageSrc}" onerror="this.src='${fallbackImg}'" alt="${ex.name}" class="max-w-[70%] max-h-[80%] object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-luminosity hover:mix-blend-normal opacity-80 hover:opacity-100 z-10">
+                    <img src="${escapeHtml(imageSrc)}" onerror="this.src='${fallbackImg}'" alt="${escapeHtml(ex.name)}" class="max-w-[70%] max-h-[80%] object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-luminosity hover:mix-blend-normal opacity-80 hover:opacity-100 z-10">
                     <span class="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/70 backdrop-blur border border-[#2A2A2A] flex items-center justify-center text-primary-container" title="Favorited">
                         <span class="material-symbols-outlined text-[18px] fill">favorite</span>
                     </span>
@@ -173,18 +173,18 @@ function renderFavoriteExercises(exercises) {
                 </div>
                 <div class="p-5 flex flex-col flex-1 justify-between gap-4">
                     <div>
-                        <h3 class="font-headline text-[20px] font-bold text-on-surface mb-1.5 leading-tight">${ex.name}</h3>
-                        <p class="font-body text-[14px] text-on-surface-variant line-clamp-2 leading-relaxed">${ex.description || ''}</p>
+                        <h3 class="font-headline text-[20px] font-bold text-on-surface mb-1.5 leading-tight">${escapeHtml(ex.name)}</h3>
+                        <p class="font-body text-[14px] text-on-surface-variant line-clamp-2 leading-relaxed">${escapeHtml(ex.description || '')}</p>
                     </div>
                     <div class="flex flex-wrap gap-2 pt-3 border-t border-[#2A2A2A]/60 mt-auto">
                         <span class="inline-flex items-center gap-1.5 bg-[#0F0F0F] border border-[#2A2A2A] rounded px-2.5 py-1 font-label text-[12px] text-on-surface uppercase tracking-wider">
-                            <span class="material-symbols-outlined text-[14px] text-primary-container fill">fitness_center</span> ${primaryMuscle}
+                            <span class="material-symbols-outlined text-[14px] text-primary-container fill">fitness_center</span> ${escapeHtml(primaryMuscle)}
                         </span>
                         <span class="inline-flex items-center gap-1.5 bg-[#0F0F0F] border border-[#2A2A2A] rounded px-2.5 py-1 font-label text-[12px] text-on-surface uppercase tracking-wider">
-                            ${ex.difficulty || 'All Levels'}
+                            ${escapeHtml(ex.difficulty || 'All Levels')}
                         </span>
                         <span class="inline-flex items-center gap-1.5 bg-[#0F0F0F] border border-[#2A2A2A] rounded px-2.5 py-1 font-label text-[12px] text-on-surface uppercase tracking-wider">
-                            ${ex.equipment || 'Standard'}
+                            ${escapeHtml(ex.equipment || 'Standard')}
                         </span>
                     </div>
                 </div>
@@ -229,7 +229,7 @@ function renderWorkouts(workouts, authHeaders) {
                 <div class="flex items-center justify-between text-xs font-body text-on-surface">
                     <span class="flex items-center gap-2 truncate pr-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
-                        <span class="truncate">${we.exerciseName || 'Unknown Exercise'}</span>
+                        <span class="truncate">${escapeHtml(we.exerciseName || 'Unknown Exercise')}</span>
                     </span>
                     <span class="text-on-surface-variant font-label shrink-0">${we.sets} Sets · ${we.reps} Reps</span>
                 </div>
@@ -252,7 +252,7 @@ function renderWorkouts(workouts, authHeaders) {
 
             <div>
                 <div class="flex items-center justify-between mb-4 gap-3">
-                    <h3 class="font-headline text-[20px] font-bold text-on-surface line-clamp-1 truncate">${workout.name}</h3>
+                    <h3 class="font-headline text-[20px] font-bold text-on-surface line-clamp-1 truncate">${escapeHtml(workout.name)}</h3>
                     <span class="shrink-0 text-[11px] text-on-surface-variant font-label bg-[#0d0d0d] px-2.5 py-1 rounded-md border border-[#262626]">
                         ${exerciseCount} Exercises
                     </span>

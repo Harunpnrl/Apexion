@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/muscle-info")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class MuscleInfoController {
 
     private final MuscleInfoService muscleInfoService;
