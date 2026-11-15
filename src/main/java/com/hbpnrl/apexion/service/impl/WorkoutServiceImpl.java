@@ -59,15 +59,19 @@ public class WorkoutServiceImpl implements WorkoutService {
         workout.setUser(user);
         workout.setName(request.getName());
 
-        List<WorkoutExercise> exercises = request.getExercises().stream()
-                .map(exRequest -> mapToWorkoutExerciseEntity(exRequest, workout))
+        List<WorkoutExercise> exercises = java.util.stream.IntStream.range(0, request.getExercises().size())
+                .mapToObj(index -> mapToWorkoutExerciseEntity(request.getExercises().get(index), workout, index))
                 .collect(Collectors.toList());
 
         workout.getWorkoutExercises().addAll(exercises);
         workoutRepository.save(workout);
     }
 
-    private WorkoutExercise mapToWorkoutExerciseEntity(WorkoutExerciseRequest exRequest, Workout workout) {
+    private WorkoutExercise mapToWorkoutExerciseEntity(
+            WorkoutExerciseRequest exRequest,
+            Workout workout,
+            int sortOrder
+    ) {
         Exercise exercise = exerciseRepository.findById(exRequest.getExerciseId())
                 .orElseThrow(() -> new RuntimeException("Exercise not found! ID: " + exRequest.getExerciseId()));
 
@@ -77,7 +81,8 @@ public class WorkoutServiceImpl implements WorkoutService {
         workoutExercise.setSets(exRequest.getSets());
         workoutExercise.setReps(exRequest.getReps());
         workoutExercise.setWeight(exRequest.getWeight());
-        workoutExercise.setSortOrder(exRequest.getSortOrder());
+        // The server owns ordering; do not trust a client-provided value.
+        workoutExercise.setSortOrder(sortOrder);
 
         return workoutExercise;
     }
