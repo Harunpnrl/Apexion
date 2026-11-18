@@ -49,7 +49,7 @@ Required variables:
 Example PowerShell configuration:
 
 ```powershell
-$env:DB_URL="jdbc:mysql://localhost:3306/exercise_helper_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+$env:DB_URL="jdbc:mysql://localhost:3306/apexion_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
 $env:DB_USERNAME="root"
 $env:DB_PASSWORD="your-database-password"
 $env:JWT_SECRET="your-base64-jwt-secret"
@@ -60,10 +60,31 @@ The JWT key must be a sufficiently long Base64-encoded key suitable for HS256.
 
 ## Database
 
-Create the database before starting the application:
+The project uses a MySQL database named `apexion_db`. The schema and seed data are provided as ordered SQL scripts:
+
+```text
+database/01_setup_tables.sql
+database/02_setup_muscle_info_data.sql
+database/03_setup_exercise_data.sql
+database/04_setup_exercise_muscle_group.sql
+```
+
+Run the scripts in this order. From the project root, using the MySQL command-line client:
+
+```powershell
+mysql -u root -p < database/01_setup_tables.sql
+mysql -u root -p apexion_db < database/02_setup_muscle_info_data.sql
+mysql -u root -p apexion_db < database/03_setup_exercise_data.sql
+mysql -u root -p apexion_db < database/04_setup_exercise_muscle_group.sql
+```
+
+Alternatively, run them from an existing MySQL console:
 
 ```sql
-CREATE DATABASE exercise_helper_db;
+SOURCE database/01_setup_tables.sql;
+SOURCE database/02_setup_muscle_info_data.sql;
+SOURCE database/03_setup_exercise_data.sql;
+SOURCE database/04_setup_exercise_muscle_group.sql;
 ```
 
 The project uses:
@@ -72,7 +93,7 @@ The project uses:
 spring.jpa.hibernate.ddl-auto=validate
 ```
 
-Therefore, the database tables must already exist and match the JPA entities. The application does not automatically create or migrate the schema.
+Therefore, the database tables and seed data must be created with the scripts above before starting the application. The application does not automatically create or migrate the schema.
 
 ## Running locally
 
